@@ -206,6 +206,7 @@ void fight() {
 		endurance += 10;
 		opDefeated++;
 	}
+	maxHealth = endurance + 20;
 	Sleep(2000);
 	system("cls");
 	incrementTime(240);
@@ -367,6 +368,9 @@ void store() {
 			health += 5;
 			cout << "-10 money!" << endl;
 			money -= 10;
+			if (health > maxHealth) {
+				health = maxHealth;
+			}
 		}
 		else {
 			cout << "'Sorry, but you don't have enough money to buy this.'" << endl;
@@ -383,6 +387,9 @@ void store() {
 			health += 30;
 			cout << "-30 money!" << endl;
 			money -= 30;
+			if (health > maxHealth) {
+				health = maxHealth;
+			}
 		}
 		else {
 			cout << "'Sorry, but you don't have enough money to buy this.'" << endl;
@@ -417,6 +424,9 @@ void store() {
 			stamina += 10;
 			cout << "-30 money!" << endl;
 			money -= 30;
+			if (health > maxHealth) {
+				health = maxHealth;
+			}
 		}
 		else {
 			cout << "'Sorry, but you don't have enough money to buy this.'" << endl;
