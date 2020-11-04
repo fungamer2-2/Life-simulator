@@ -1,7 +1,11 @@
 #include <iostream>
+
 #include <Windows.h>
+
 #include<math.h>
+
 #include<ctime>
+
 using namespace std;
 
 void home();
@@ -42,7 +46,7 @@ void incrementTime(int amount) {
 void fight() {
 	int defense = strength - 3;
 	system("cls");
-	while(health > 0 && opHealth > 0) {
+	while (health > 0 && opHealth > 0) {
 		int currentStamina = stamina;
 		int op;
 		while (currentStamina >= 20) {
@@ -69,8 +73,7 @@ void fight() {
 						defense -= 4 / 4;
 					}
 					currentStamina -= 20;
-				}
-				else {
+				} else {
 					cout << "You don't have enough stamina!" << endl;
 				}
 				break;
@@ -83,8 +86,7 @@ void fight() {
 						defense -= 6 / 4;
 					}
 					currentStamina -= 30;
-				}
-				else {
+				} else {
 					cout << "You don't have enough stamina!" << endl;
 				}
 				break;
@@ -97,8 +99,7 @@ void fight() {
 						defense -= 12 / 4;
 					}
 					currentStamina -= 50;
-				}
-				else {
+				} else {
 					cout << "You don't have enough stamina!" << endl;
 				}
 				break;
@@ -111,8 +112,7 @@ void fight() {
 						defense -= 30 / 4;
 					}
 					currentStamina -= 100;
-				}
-				else {
+				} else {
 					cout << "You don't have enough stamina!" << endl;
 				}
 				break;
@@ -122,8 +122,7 @@ void fight() {
 					cout << "+5 health!" << endl;
 					health += 5;
 					currentStamina -= 40;
-				}
-				else {
+				} else {
 					cout << "You don't have enough stamina!" << endl;
 				}
 				break;
@@ -133,8 +132,7 @@ void fight() {
 					cout << "+9 defense!" << endl;
 					defense += 9;
 					currentStamina -= 30;
-				}
-				else {
+				} else {
 					cout << "You don't have enough stamina!" << endl;
 				}
 				break;
@@ -147,46 +145,45 @@ void fight() {
 			cout << endl;
 			cout << endl;
 		}
-			Sleep(1500);
+		Sleep(1500);
+		srand(time(0));
+		int enemyOp = 1 + rand() % 3;
+		if (enemyOp < 3) {
 			srand(time(0));
-			int enemyOp = 1 + rand() % 3;
-			if (enemyOp < 3) {
-				srand(time(0));
-				if (rand() % 2 == 0) {
-					cout << "You dodged your opponent's attack!" << endl;
-				}
-				else {
-					if (enemyOp == 1) {
-						cout << "Your opponent punched you!" << endl;
-						cout << "-" << 2 * opStrength << " health!" << endl;
-						health -= 2 * opStrength;
-						cout << "-" << opStrength << " defense!" << endl;
-						defense -= opStrength;
-					} else {
-						cout << "Your opponent kicked you!" << endl;
-						cout << "-" << opStrength << " health!" << endl;
-						health -= opStrength;
-						cout << "-" << 2 * opStrength << " defense!" << endl;
-						defense -= 2 * opStrength;
-					}
-				}
-				isAware = false;
+			if (rand() % 2 == 0) {
+				cout << "You dodged your opponent's attack!" << endl;
 			} else {
-				cout << "Your oppponent is blocking!" << endl;
-				cout << "a quater of the damage you deal next turn will be directed to you!" << endl;
-				opDefending = true;
+				if (enemyOp == 1) {
+					cout << "Your opponent punched you!" << endl;
+					cout << "-" << 2 * opStrength << " health!" << endl;
+					health -= 2 * opStrength;
+					cout << "-" << opStrength << " defense!" << endl;
+					defense -= opStrength;
+				} else {
+					cout << "Your opponent kicked you!" << endl;
+					cout << "-" << opStrength << " health!" << endl;
+					health -= opStrength;
+					cout << "-" << 2 * opStrength << " defense!" << endl;
+					defense -= 2 * opStrength;
+				}
 			}
-			cout << endl;
-			cout << endl;
-			cout << endl;
-			if (defense < 1) {
-				cout << "You took some damage since your defense went to low!" << endl;
-				health -= maxHealth / 3;
-				defense = strength / 2;
-			}
-			cout << endl;
-			cout << endl;
-			cout << endl;
+			isAware = false;
+		} else {
+			cout << "Your oppponent is blocking!" << endl;
+			cout << "a quater of the damage you deal next turn will be directed to you!" << endl;
+			opDefending = true;
+		}
+		cout << endl;
+		cout << endl;
+		cout << endl;
+		if (defense < 1) {
+			cout << "You took some damage since your defense went to low!" << endl;
+			health -= maxHealth / 3;
+			defense = strength / 2;
+		}
+		cout << endl;
+		cout << endl;
+		cout << endl;
 	}
 	Sleep(2000);
 	system("cls");
@@ -275,8 +272,7 @@ void boxing() {
 			cout << "0";
 		}
 		cout << minutes << " PM." << endl;
-	}
-	else {
+	} else {
 		cout << "Time: " << gameTime << ":";
 		if (minutes < 10) {
 			cout << "0";
@@ -329,8 +325,7 @@ void store() {
 			cout << "0";
 		}
 		cout << minutes << " PM." << endl;
-	}
-	else {
+	} else {
 		cout << "Time: " << gameTime << ":";
 		if (minutes < 10) {
 			cout << "0";
@@ -371,8 +366,7 @@ void store() {
 			if (health > maxHealth) {
 				health = maxHealth;
 			}
-		}
-		else {
+		} else {
 			cout << "'Sorry, but you don't have enough money to buy this.'" << endl;
 		}
 		cout << endl;
@@ -390,8 +384,7 @@ void store() {
 			if (health > maxHealth) {
 				health = maxHealth;
 			}
-		}
-		else {
+		} else {
 			cout << "'Sorry, but you don't have enough money to buy this.'" << endl;
 		}
 		cout << endl;
@@ -406,8 +399,7 @@ void store() {
 			stamina += 5;
 			cout << "-15 money!" << endl;
 			money -= 15;
-		}
-		else {
+		} else {
 			cout << "'Sorry, but you don't have enough money to buy this.'" << endl;
 		}
 		cout << endl;
@@ -427,8 +419,7 @@ void store() {
 			if (health > maxHealth) {
 				health = maxHealth;
 			}
-		}
-		else {
+		} else {
 			cout << "'Sorry, but you don't have enough money to buy this.'" << endl;
 		}
 		cout << endl;
@@ -452,8 +443,7 @@ void gym() {
 			cout << "0";
 		}
 		cout << minutes << " PM." << endl;
-	}
-	else {
+	} else {
 		cout << "Time: " << gameTime << ":";
 		if (minutes < 10) {
 			cout << "0";
@@ -489,8 +479,7 @@ void gym() {
 				if (playerClass == 3) {
 					cout << "+4 strength!" << endl;
 					strength += 4;
-				}
-				else {
+				} else {
 					cout << "+2 strength!" << endl;
 					strength += 2;
 				}
@@ -517,12 +506,10 @@ void gym() {
 				cout << "-10 money!" << endl;
 				money -= 10;
 				incrementTime(90);
-			}
-			else {
+			} else {
 				cout << "It's way too late to do some sparing!" << endl;
 			}
-		}
-		else {
+		} else {
 			cout << "You don't have enough money!" << endl;
 		}
 		cout << endl;
@@ -546,8 +533,7 @@ void university() {
 			cout << "0";
 		}
 		cout << minutes << " PM." << endl;
-	}
-	else {
+	} else {
 		cout << "Time: " << gameTime << ":";
 		if (minutes < 10) {
 			cout << "0";
@@ -593,15 +579,13 @@ void university() {
 				cout << endl;
 				cout << endl;
 				cout << endl;
-			}
-			else {
+			} else {
 				cout << "University is closed!" << endl;
 				cout << endl;
 				cout << endl;
 				cout << endl;
 			}
-		}
-		else {
+		} else {
 			cout << "You don't have enough money!" << endl;
 			cout << endl;
 			cout << endl;
@@ -618,8 +602,7 @@ void university() {
 			cout << endl;
 			cout << endl;
 			cout << endl;
-		}
-		else {
+		} else {
 			cout << "Your too tired to study!" << endl;
 			cout << endl;
 			cout << endl;
@@ -644,8 +627,7 @@ void job() {
 			cout << "0";
 		}
 		cout << minutes << " PM." << endl;
-	}
-	else {
+	} else {
 		cout << "Time: " << gameTime << ":";
 		if (minutes < 10) {
 			cout << "0";
@@ -724,8 +706,7 @@ void outside() {
 			cout << "0";
 		}
 		cout << minutes << " PM." << endl;
-	}
-	else {
+	} else {
 		cout << "Time: " << gameTime << ":";
 		if (minutes < 10) {
 			cout << "0";
@@ -742,7 +723,7 @@ void outside() {
 	cout << "8: Have a run." << endl;
 	cin >> op;
 	system("cls");
-	switch (op){
+	switch (op) {
 	case 1:
 		cout << "Health: " << health << "/" << maxHealth << endl;
 		cout << "Strength: " << strength << endl;
@@ -778,8 +759,7 @@ void outside() {
 			cout << endl;
 			cout << endl;
 			outside();
-		}
-		else {
+		} else {
 			boxing();
 		}
 		break;
@@ -795,8 +775,7 @@ void outside() {
 			cout << endl;
 			cout << endl;
 			incrementTime(60);
-		}
-		else {
+		} else {
 			cout << "It's too dark to have a run! And your tired. That too." << endl;
 			cout << endl;
 			cout << endl;
@@ -820,8 +799,7 @@ void home() {
 			cout << "0";
 		}
 		cout << minutes << " PM." << endl;
-	}
-	else {
+	} else {
 		cout << "Time: " << gameTime << ":";
 		if (minutes < 10) {
 			cout << "0";
@@ -878,7 +856,7 @@ int main() {
 	int op;
 	cout << "Welcome to life simulator! You've been given 20 stat points to start with." << endl;
 	cout << "Out of " << points << " points, how many do you want to put in strength?" << endl;
-	cout << "Your current stats: " << strength << " strength, " << intelligence << " intelligence, and " << endurance <<  " endurance." << endl;
+	cout << "Your current stats: " << strength << " strength, " << intelligence << " intelligence, and " << endurance << " endurance." << endl;
 	cin >> op;
 	if (op < 0) {
 		op = 0;
@@ -893,8 +871,7 @@ int main() {
 	cin >> op;
 	if (op < 0) {
 		op = 0;
-	}
-	else if (op > points) {
+	} else if (op > points) {
 		op = points;
 	}
 	intelligence = op;
@@ -905,8 +882,7 @@ int main() {
 	cin >> op;
 	if (op < 0) {
 		op = 0;
-	}
-	else if (op > points) {
+	} else if (op > points) {
 		op = points;
 	}
 	endurance = op;
